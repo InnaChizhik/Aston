@@ -133,15 +133,14 @@ public class Lesson_3 {
 
     public static void diagArray(int[][] arr2) {
         for (int i = 0; i < arr2.length; i++) {
-            for (int j = 0, l = arr2[i].length - 1; j < arr2[i].length; j++, l--) {
-                if (i == j || i == l-j)
-                {arr2[i][j] = 1;}
-                else
-                    arr2[i][j] = 0;
-                System.out.print(arr2[i][j] + " ");
+            arr2[i][i] = arr2[arr2.length - i - 1][i] = 1;}
+        for(int i = 0; i < arr2.length; i++) {
+            for(int j = 0; j < arr2.length; j++) {
+                System.out.print(arr2[i][j]+ " ");
             }
             System.out.print("\n");
         }
+
     }
     public static int[] massVal( int len, int initialValue){
         int arr3[] = new int[len];
