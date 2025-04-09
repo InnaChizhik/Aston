@@ -15,9 +15,9 @@ public class Park {
 
 
     class Attraction {
-       private String attractionName;
-       private String workingHours;
-       private double price;
+        private String attractionName;
+        private String workingHours;
+        private double price;
 
         Attraction(String attractionName, String workingHours, double price) {
             this.attractionName = attractionName;
@@ -32,5 +32,4 @@ public class Park {
     }
 
 
-    }
-
+}
