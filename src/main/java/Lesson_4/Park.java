@@ -10,7 +10,7 @@ public class Park {
         this.time = time;
     }
     void getInfo(){
-        System.out.println(name + time);
+        System.out.println(name + ". " +  "Время работы: " + time);
     }
 
 

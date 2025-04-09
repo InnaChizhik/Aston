@@ -14,8 +14,10 @@ public class Main {
         productsArray[2].getInfo();
         productsArray[3].getInfo();
         productsArray[4].getInfo();
-        Park.Attraction park1 = new Park("Парк Челюскинцев", "11.00 - 21.00").new Attraction("Ладья", "11.00 - 20.40", 5.60);
-        park1.getInfo();
+        Park park = new Park("Парк Челюскинцев", "11.00 - 21.00");
+        park.getInfo();
+        Park.Attraction autodrome = park.new Attraction("Автордром", "11.00 - 21.00", 4.50);
+        autodrome.getInfo();
 
 
 
