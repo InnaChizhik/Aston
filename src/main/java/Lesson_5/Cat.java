@@ -3,9 +3,11 @@ package Lesson_5;
 public class Cat extends Animal {
     final int maxDistanceRun = 200;
     static int catCount = 0;
+    boolean satiety;
 
     public Cat(String name) {
         super(name);
+        this.satiety = false;
         catCount++;
     }
 
@@ -27,5 +29,19 @@ public class Cat extends Animal {
 
     public static int infoCatCount() {
         return catCount;
+    }
+
+    public void eatCat(Bowl bowl, int foodNeed) {
+        if (!satiety) {
+            satiety = bowl.satietyCat(foodNeed);
+        }
+    }
+
+    public void infoSatienty() {
+        if (satiety == true) {
+            System.out.println(name + " сытый.");
+        } else {
+            System.out.println(name + " голоден.");
+        }
     }
 }
