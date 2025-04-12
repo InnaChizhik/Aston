@@ -1,10 +1,9 @@
 package Lesson_5;
 
-public class Dog extends Animal {
-    final int maxDistanceRun = 500;
-    final int getMaxDistanceSwim = 10;
+public class Cat extends Animal {
+    final int maxDistanceRun = 200;
 
-    public Dog(String name) {
+    public Cat(String name) {
         super(name);
     }
 
@@ -21,14 +20,6 @@ public class Dog extends Animal {
 
     @Override
     public void swim(int distance) {
-        if (distance < 0) {
-            System.out.println("Дистанция не может быть отрицательной");
-        } else if (distance <= getMaxDistanceSwim) {
-            System.out.println(name + " проплыл " + distance + " м.");
-        } else {
-            System.out.println(name + " не может столько плыть, максимальная дистанция: " + getMaxDistanceSwim + " м.");
-        }
+        System.out.println(name + " не умеет плавать.");
     }
-
-
 }
