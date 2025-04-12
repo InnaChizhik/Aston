@@ -9,6 +9,7 @@ public class Main {
         dogBobik.swim(2);
         Cat catMurzik = new Cat("Мурзик");
         catMurzik.swim(5);
+        catMurzik.run(150);
         System.out.println("Котов: " + Cat.infoCatCount());
         System.out.println("Собак: " + Dog.infoDogCount());
         System.out.println("Всего животных: " + Animal.infoAnimalCount());
