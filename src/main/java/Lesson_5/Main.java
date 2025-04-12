@@ -17,21 +17,17 @@ public class Main {
         ArrayList<Cat> cats = new ArrayList<>();
         cats.add(new Cat("Тофик"));
         cats.add(new Cat("Умка"));
-        for (int i = 0; i < cats.size(); i++) {
-            Cat cat = cats.get(i);
+        for (Cat cat : cats) {
             cat.eatCat(bowl, 10);
         }
-        for (int i = 0; i < cats.size(); i++) {
-            Cat cat = cats.get(i);
+        for (Cat cat : cats) {
             cat.infoSatienty();
         }
         bowl.addFood(10);
-        for (int i = 0; i < cats.size(); i++) {
-            Cat cat = cats.get(i);
+        for (Cat cat : cats) {
             cat.eatCat(bowl, 10);
         }
-        for (int i = 0; i < cats.size(); i++) {
-            Cat cat = cats.get(i);
+        for (Cat cat : cats) {
             cat.infoSatienty();
         }
         Figures circle = new Circle(3, "желтый", "зеленый");
