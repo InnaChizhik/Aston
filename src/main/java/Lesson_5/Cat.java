@@ -2,9 +2,11 @@ package Lesson_5;
 
 public class Cat extends Animal {
     final int maxDistanceRun = 200;
+    static int catCount = 0;
 
     public Cat(String name) {
         super(name);
+        catCount++;
     }
 
     @Override
@@ -21,5 +23,9 @@ public class Cat extends Animal {
     @Override
     public void swim(int distance) {
         System.out.println(name + " не умеет плавать.");
+    }
+
+    public static int infoCatCount() {
+        return catCount;
     }
 }

@@ -3,9 +3,11 @@ package Lesson_5;
 public class Dog extends Animal {
     final int maxDistanceRun = 500;
     final int getMaxDistanceSwim = 10;
+    static int dogCount = 0;
 
     public Dog(String name) {
         super(name);
+        dogCount++;
     }
 
     @Override
@@ -30,5 +32,8 @@ public class Dog extends Animal {
         }
     }
 
+    public static int infoDogCount() {
+        return dogCount;
+    }
 
 }
