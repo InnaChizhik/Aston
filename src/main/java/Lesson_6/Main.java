@@ -35,9 +35,9 @@ public class Main {
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
-        int[] checkArray = {1, 2};
+        int[] checkArray = {0, 1};
         try {
-            System.out.println(checkArray[4]);
+            System.out.println(checkArray[2]);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Ошибка: выход за границы массива ");
         }
