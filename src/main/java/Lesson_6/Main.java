@@ -2,13 +2,38 @@ package Lesson_6;
 
 public class Main {
     public static void main(String[] args) {
-        String[][] correctArray = new String[4][4];
-        String[][] incorrectArray = new String[3][4];
+        String[][] correctArray = {
+                {"1", "2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "10", "11", "12"},
+                {"13", "14", "15", "16"}
+        };
+        String[][] incorrectArray = {
+                {"1", "2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "10", "11", "3"},
+                {"13", "2", "15"}
+        };
+        String[][] incorrectArray2 = {
+                {"0", "1", "2", "3"},
+                {"5", "1", "a", "8"},
+                {"9", "10", "11", "3"},
+                {"13", "2", "16", "5"}
+        };
         try {
-            Methods.arraySize(correctArray);
-            Methods.arraySize(incorrectArray);
-        } catch (MyArraySizeException e) {
-            System.err.println("Ошибка: " + e.getMessage());
+            System.out.println("Сумма " + Methods.arraySize(correctArray));
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.println("Сумма " + Methods.arraySize(incorrectArray));
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.println("Сумма " + Methods.arraySize(incorrectArray2));
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
