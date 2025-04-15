@@ -22,17 +22,17 @@ public class Main {
         };
         try {
             System.out.println("Сумма " + Methods.arraySize(correctArray));
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
             System.out.println("Сумма " + Methods.arraySize(incorrectArray));
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
             System.out.println("Сумма " + Methods.arraySize(incorrectArray2));
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         int[] checkArray = {0, 1};
