@@ -35,5 +35,11 @@ public class Main {
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
+        int[] checkArray = {1, 2};
+        try {
+            System.out.println(checkArray[4]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Ошибка: выход за границы массива ");
+        }
     }
 }
