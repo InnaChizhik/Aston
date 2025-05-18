@@ -32,6 +32,7 @@ public class MTS_Tests {
         assertEquals("Онлайн пополнение без комиссии", "Онлайн пополнение без комиссии");
     }
 
+
     @Test
     public void testLogo() {
         Assertions.assertTrue(visa.isDisplayed());
@@ -42,6 +43,7 @@ public class MTS_Tests {
     @Test
     public void testLink() {
         link.click();
+        driver.get("https://www.mts.by/");
     }
 
     @Test
