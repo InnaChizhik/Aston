@@ -24,6 +24,7 @@ public class MTS_Tests {
         driver = WebDriverManager.chromedriver().create();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.mts.by/");
+        driver.findElement(By.xpath("//button[contains(text(), 'Принять')]")).click();
     }
 
     @Test
