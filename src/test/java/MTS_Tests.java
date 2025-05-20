@@ -64,6 +64,7 @@ public class MTS_Tests {
         WebElement button = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
         button.click();
         WebElement widget = driver.findElement((By.id("widget-button")));
+        //доработать открытие всплыв окна
 
     }
 
