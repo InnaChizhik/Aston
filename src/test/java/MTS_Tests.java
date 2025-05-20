@@ -10,11 +10,14 @@ import org.openqa.selenium.WebElement;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MTS_Tests {
     public static WebDriver driver;
     private WebElement visa = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[1]/img"));
+    private WebElement visaVerf = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[2]/img"));
     private WebElement masterCard = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[3]/img"));
+    private WebElement masterCardSecure = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[4]/img"));
     private WebElement belCart = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[5]/img"));
     private WebElement link = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/a"));
 
@@ -22,28 +25,31 @@ public class MTS_Tests {
     @BeforeAll
     static void setup() {
         driver = WebDriverManager.chromedriver().create();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://www.mts.by/");
         driver.findElement(By.xpath("//button[contains(text(), 'Принять')]")).click();
     }
 
     @Test
     public void testTitle() {
-        WebElement block = driver.findElement(By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/h2"));
+        WebElement block = driver.findElement(By.xpath("//*[@class=\"pay__wrapper\"]/h2"));
         assertEquals("Онлайн пополнение без комиссии", "Онлайн пополнение без комиссии");
     }
 
 
     @Test
     public void testLogo() {
-        Assertions.assertTrue(visa.isDisplayed());
-        Assertions.assertTrue(masterCard.isDisplayed());
-        Assertions.assertTrue(belCart.isDisplayed());
+        assertTrue(visa.isDisplayed());
+        assertTrue(visaVerf.isDisplayed());
+        assertTrue(masterCard.isDisplayed());
+        assertTrue(masterCardSecure.isDisplayed());
+        assertTrue(belCart.isDisplayed());
     }
 
     @Test
     public void testLink() {
         link.click();
+        assertTrue(driver.getCurrentUrl().contains("help/poryadok-oplaty-i-bezopasnost-internet-platezhey"), "Не работает ссылка");
         driver.get("https://www.mts.by/");
     }
 
