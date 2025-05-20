@@ -49,7 +49,7 @@ public class MTS_Tests {
     @Test
     public void testLink() {
         link.click();
-        assertTrue(driver.getCurrentUrl().contains("help/poryadok-oplaty-i-bezopasnost-internet-platezhey"), "Не работает ссылка");
+        assertTrue(driver.getCurrentUrl().contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"), "Не работает ссылка");
         driver.get("https://www.mts.by/");
     }
 
@@ -63,6 +63,7 @@ public class MTS_Tests {
         email.sendKeys("prover@mail.ru");
         WebElement button = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
         button.click();
+        WebElement widget = driver.findElement((By.id("widget-button")));
 
     }
 
