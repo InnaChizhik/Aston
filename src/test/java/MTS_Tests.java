@@ -14,13 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MTS_Tests {
     public static WebDriver driver;
-    private WebElement visa = driver.findElement(By.xpath("//ul/li[1]/img"));
-    private WebElement visaVerf = driver.findElement(By.xpath("//ul/li[2]/img"));
-    private WebElement masterCard = driver.findElement(By.xpath("//ul/li[3]/img"));
-    private WebElement masterCardSecure = driver.findElement(By.xpath("//ul/li[4]/img"));
-    private WebElement belCart = driver.findElement(By.xpath("//ul/li[5]/img"));
-    private WebElement link = driver.findElement(By.xpath("//section/div/a"));
-
+    private static MTSPage mtsPage;
 
     @BeforeAll
     static void setup() {
@@ -28,41 +22,34 @@ public class MTS_Tests {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://www.mts.by/");
         driver.findElement(By.xpath("//button[contains(text(), 'Принять')]")).click();
+        mtsPage = new MTSPage(driver);
     }
 
     @Test
     public void testTitle() {
-        WebElement block = driver.findElement(By.xpath("//*[@class=\"pay__wrapper\"]/h2"));
-        assertEquals("Онлайн пополнение без комиссии", "Онлайн пополнение без комиссии");
+        assertTrue(mtsPage.titleDisplayed(), "Заголовка нет");
+        assertEquals("Онлайн пополнение без комиссии", mtsPage.titleText().replaceAll("\\s+", " "), "Заголовок неверный");
     }
 
 
     @Test
     public void testLogo() {
-        assertTrue(visa.isDisplayed());
-        assertTrue(visaVerf.isDisplayed());
-        assertTrue(masterCard.isDisplayed());
-        assertTrue(masterCardSecure.isDisplayed());
-        assertTrue(belCart.isDisplayed());
+        assertTrue(mtsPage.visaDisplayed(), "нет visa");
+        assertTrue(mtsPage.visaVefrDisplayed(), "нет visaVefr");
+        assertTrue(mtsPage.masterCardDisplayed(), "нет masterCard");
+        assertTrue(mtsPage.masterCardSecureDisplayed(), "нет masterCardSecure");
+        assertTrue(mtsPage.belCartDisplayed(), "нет belCart");
     }
 
     @Test
     public void testLink() {
-        link.click();
-        assertTrue(driver.getCurrentUrl().contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"), "Не работает ссылка");
+        mtsPage.clickLink();
+        assertTrue(mtsPage.getUrl().contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"));
         driver.get("https://www.mts.by/");
     }
 
     @Test
     public void testButton() {
-        WebElement phone = driver.findElement(By.xpath("//*[@id=\"connection-phone\"]"));
-        phone.sendKeys("297777777");
-        WebElement sum = driver.findElement(By.xpath("//*[@id=\"connection-sum\"]"));
-        sum.sendKeys("30");
-        WebElement email = driver.findElement(By.xpath("//*[@id=\"connection-email\"]"));
-        email.sendKeys("prover@mail.ru");
-        WebElement button = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
-        button.click();
 
 
     }
