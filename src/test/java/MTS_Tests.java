@@ -63,7 +63,6 @@ public class MTS_Tests {
         email.sendKeys("prover@mail.ru");
         WebElement button = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
         button.click();
-        WebElement widget = driver.findElement((By.id("widget-button")));
 
 
     }
