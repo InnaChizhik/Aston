@@ -54,6 +54,20 @@ public class MTS_Tests {
 
     }
 
+    @Test
+    public void testTextUslug() {
+        assertEquals("Номер телефона", mtsPage.getphonePlaceholder(), "Плейсхолдер для тел. неверный");
+        assertEquals("Сумма", mtsPage.getsumPlaceholder(), "Плейсхолдер суммы неверно");
+        assertEquals("E-mail для отправки чека", mtsPage.getemailPlaceholder(), "Плейсхолдер почты неверно");
+    }
+
+    @Test
+    public void testSelect() {
+        mtsPage.selectDomInternet();
+
+    }
+
+
     @AfterAll
     public static void finish() {
         driver.close();

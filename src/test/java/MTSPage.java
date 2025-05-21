@@ -63,7 +63,38 @@ public class MTSPage {
     public String getUrl() {
         return driver.getCurrentUrl();
     }
+
     //место для кнопки и всего того что с ней связано господи
 
+    @FindBy(xpath = "//*[@id=\"connection-phone\"]")
+    private WebElement phoneText;
+
+    public String getphonePlaceholder() {
+        return phoneText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"connection-sum\"]")
+    private WebElement sumText;
+
+    public String getsumPlaceholder() {
+        return sumText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"connection-email\"]")
+    private WebElement emailText;
+
+    public String getemailPlaceholder() {
+        return emailText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button")
+    private WebElement select_btn;
+    @FindBy(xpath = "//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[2]/p")
+    private WebElement btnDomInternet;
+
+    public void selectDomInternet() {
+        select_btn.click();
+        btnDomInternet.click();
+    }
 
 }
