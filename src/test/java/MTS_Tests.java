@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MTS_Tests {
     public static WebDriver driver;
-    private WebElement visa = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[1]/img"));
-    private WebElement visaVerf = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[2]/img"));
-    private WebElement masterCard = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[3]/img"));
-    private WebElement masterCardSecure = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[4]/img"));
-    private WebElement belCart = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[5]/img"));
-    private WebElement link = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/a"));
+    private WebElement visa = driver.findElement(By.xpath("//ul/li[1]/img"));
+    private WebElement visaVerf = driver.findElement(By.xpath("//ul/li[2]/img"));
+    private WebElement masterCard = driver.findElement(By.xpath("//ul/li[3]/img"));
+    private WebElement masterCardSecure = driver.findElement(By.xpath("//ul/li[4]/img"));
+    private WebElement belCart = driver.findElement(By.xpath("//ul/li[5]/img"));
+    private WebElement link = driver.findElement(By.xpath("//section/div/a"));
 
 
     @BeforeAll
@@ -64,7 +64,7 @@ public class MTS_Tests {
         WebElement button = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
         button.click();
         WebElement widget = driver.findElement((By.id("widget-button")));
-       
+
 
     }
 
