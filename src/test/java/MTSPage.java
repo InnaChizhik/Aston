@@ -67,34 +67,88 @@ public class MTSPage {
     //место для кнопки и всего того что с ней связано господи
 
     @FindBy(xpath = "//*[@id=\"connection-phone\"]")
-    private WebElement phoneText;
+    private WebElement phoneConText;
 
-    public String getphonePlaceholder() {
-        return phoneText.getAttribute("placeholder");
+    public String getConnectionPhonePlaceholder() {
+        return phoneConText.getAttribute("placeholder");
     }
 
     @FindBy(xpath = "//*[@id=\"connection-sum\"]")
-    private WebElement sumText;
+    private WebElement sumConText;
 
-    public String getsumPlaceholder() {
-        return sumText.getAttribute("placeholder");
+    public String getConnectionSumPlaceholder() {
+        return sumConText.getAttribute("placeholder");
     }
 
     @FindBy(xpath = "//*[@id=\"connection-email\"]")
-    private WebElement emailText;
+    private WebElement emailConText;
 
-    public String getemailPlaceholder() {
-        return emailText.getAttribute("placeholder");
+    public String getConnectionEmailPlaceholder() {
+        return emailConText.getAttribute("placeholder");
     }
 
-    @FindBy(xpath = "//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button")
-    private WebElement select_btn;
-    @FindBy(xpath = "//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[2]/p")
-    private WebElement btnDomInternet;
+    @FindBy(xpath = "//*[@id=\"internet-phone\"]")
+    private WebElement internetPhoneText;
 
-    public void selectDomInternet() {
-        select_btn.click();
-        btnDomInternet.click();
+    public String getInternetPhonePlaceholder() {
+        return internetPhoneText.getAttribute("placeholder");
     }
+
+    @FindBy(xpath = "//*[@id=\"internet-sum\"]")
+    private WebElement internerSumText;
+
+    public String getInternetSumPlaceholder() {
+        return internerSumText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"internet-email\"]")
+    private WebElement internetEmailText;
+
+    public String getInternetEmailPlaceholder() {
+        return internetEmailText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"score-instalment\"]")
+    private WebElement instalmentScoreText;
+
+    public String getInstalmentScorePlaceholder() {
+        return instalmentScoreText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"instalment-sum\"]")
+    private WebElement instalmentSumText;
+
+    public String getInstalmentSumPlaceholder() {
+        return instalmentSumText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"instalment-email\"]")
+    private WebElement instalmentEmailText;
+
+    public String getInstalmentEmailPlaceholder() {
+        return instalmentEmailText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"score-arrears\"]")
+    private WebElement arrearsScoreText;
+
+    public String getArrearsScorePlaceholder() {
+        return arrearsScoreText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"arrears-sum\"]")
+    private WebElement arrearsSumText;
+
+    public String getArrearsSumPlaceholder() {
+        return arrearsSumText.getAttribute("placeholder");
+    }
+
+    @FindBy(xpath = "//*[@id=\"arrears-email\"]")
+    private WebElement arrearsEmailText;
+
+    public String getArrearsEmailPlaceholder() {
+        return arrearsEmailText.getAttribute("placeholder");
+    }
+
 
 }
