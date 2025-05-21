@@ -1,11 +1,9 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -56,15 +54,30 @@ public class MTS_Tests {
 
     @Test
     public void testTextUslug() {
-        assertEquals("Номер телефона", mtsPage.getphonePlaceholder(), "Плейсхолдер для тел. неверный");
-        assertEquals("Сумма", mtsPage.getsumPlaceholder(), "Плейсхолдер суммы неверно");
-        assertEquals("E-mail для отправки чека", mtsPage.getemailPlaceholder(), "Плейсхолдер почты неверно");
+        assertEquals("Номер телефона", mtsPage.getConnectionPhonePlaceholder(), "Плейсхолдер для тел.(услуги) неверный");
+        assertEquals("Сумма", mtsPage.getConnectionSumPlaceholder(), "Плейсхолдер суммы(услуги) неверно");
+        assertEquals("E-mail для отправки чека", mtsPage.getConnectionEmailPlaceholder(), "Плейсхолдер почты(услуги) неверно");
     }
 
     @Test
-    public void testSelect() {
-        mtsPage.selectDomInternet();
+    public void testTextInternet() {
+        assertEquals("Номер абонента", mtsPage.getInternetPhonePlaceholder(), "Плейсхолдер для тел(интернет) неверный");
+        assertEquals("Сумма", mtsPage.getInternetSumPlaceholder(), "Плейсхолдер суммы(интернет) неверно");
+        assertEquals("E-mail для отправки чека", mtsPage.getInternetEmailPlaceholder(), "Плейсхолдер почты(интернет) неверно");
+    }
 
+    @Test
+    public void testTextInstalment() {
+        assertEquals("Номер счета на 44", mtsPage.getInstalmentScorePlaceholder(), "Плейсхолдер для счета неверный");
+        assertEquals("Сумма", mtsPage.getInstalmentSumPlaceholder(), "Плейсхолдер суммы(рассрочка) неверно");
+        assertEquals("E-mail для отправки чека", mtsPage.getInstalmentEmailPlaceholder(), "Плейсхолдер почты(рассрочка) неверно");
+    }
+
+    @Test
+    public void testTextArrears() {
+        assertEquals("Номер счета на 2073", mtsPage.getArrearsScorePlaceholder(), "Плейсхолдер для тел.(задолженность) неверный");
+        assertEquals("Сумма", mtsPage.getArrearsSumPlaceholder(), "Плейсхолдер суммы(задолженность) неверно");
+        assertEquals("E-mail для отправки чека", mtsPage.getArrearsEmailPlaceholder(), "Плейсхолдер почты(задолженность) неверно");
     }
 
 
