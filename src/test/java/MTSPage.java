@@ -190,7 +190,7 @@ public class MTSPage {
         return text.replaceAll("Оплата: Услуги связи Номер:375", "").trim();
     }
 
-    @FindBy(xpath = "//label[contains(text(), 'Номер карты')]")
+    @FindBy(xpath = "//*[@id=\"cc-number\"]")
     private WebElement numberCard;
 
     public String getNumberCardPlaceholder() {

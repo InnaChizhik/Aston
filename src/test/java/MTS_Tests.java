@@ -88,6 +88,10 @@ public class MTS_Tests {
         mtsPage.fillForma(phone, sum, email);
         mtsPage.clickContinButton();
         driver.switchTo().frame(driver.findElement(By.className("bepaid-iframe")));
+        assertEquals("Номер карты", mtsPage.getNumberCardPlaceholder(), "Плейсхолдер номер карты неверный");
+        assertEquals("Срок действия", mtsPage.getSrokCardPlaceholder(), "Плейсхолдер срок карты неверный");
+        assertEquals("Имя и фамилия на карте", mtsPage.getNameCardPlaceholder(), "Плейсхолдер ФІ неверный");
+        assertEquals("CVC", mtsPage.getCodeCardPlaceholder(), "Плейсхолдер код карты неверный");
         assertEquals(phone, mtsPage.getFormaPhone(), "Номер тел. неверный");
         assertEquals(sum, mtsPage.getFormaSum(), "Сумма неправильная в окне");
         assertEquals(sum, mtsPage.getFormaButtonSum(), "Сумма неправильная на кнопке");
@@ -95,6 +99,7 @@ public class MTS_Tests {
 
 
     }
+
 
     @AfterAll
     public static void finish() {
