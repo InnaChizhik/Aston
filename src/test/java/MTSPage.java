@@ -186,6 +186,8 @@ public class MTSPage {
     }
 
     public String getFormaPhone() {
-        return formaPhone.getText();
+        String text = formaPhone.getText();
+        return text.replaceAll("Оплата: Услуги связи Номер:375", "").trim();
     }
+
 }

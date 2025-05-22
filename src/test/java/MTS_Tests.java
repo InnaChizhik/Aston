@@ -83,14 +83,15 @@ public class MTS_Tests {
     @Test
     public void testInput() {
         String phone = "297777777";
-        String sum = "30";
+        String sum = "30.00 BYN";
         String email = "prover@mail.ru";
         mtsPage.fillForma(phone, sum, email);
         mtsPage.clickContinButton();
+        driver.switchTo().frame(driver.findElement(By.className("bepaid-iframe")));
         assertEquals(phone, mtsPage.getFormaPhone(), "Номер тел. неверный");
         assertEquals(sum, mtsPage.getFormaSum(), "Сумма неправильная в окне");
         assertEquals(sum, mtsPage.getFormaButtonSum(), "Сумма неправильная на кнопке");
-        driver.get("https://www.mts.by/");
+        driver.switchTo().defaultContent();
 
 
     }
