@@ -190,4 +190,14 @@ public class MTSPage {
         return text.replaceAll("Оплата: Услуги связи Номер:375", "").trim();
     }
 
+    @FindBy(xpath = "//label[contains(text(), 'Номер карты')]")
+    private WebElement numberCard;
+    @FindBy(xpath = "//label[contains(text(), 'Срок действия')]")
+    WebElement srokCard;
+    @FindBy(xpath = "//label[contains(text(), 'Имя и фамилия на карте')]")
+    WebElement nameCard;
+    @FindBy(xpath = "//label[contains(text(), 'CVC')]")
+    WebElement codeCard;
+
+
 }
