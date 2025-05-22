@@ -192,12 +192,31 @@ public class MTSPage {
 
     @FindBy(xpath = "//label[contains(text(), 'Номер карты')]")
     private WebElement numberCard;
+
+    public String getNumberCardPlaceholder() {
+        return numberCard.getAttribute("placeholder");
+    }
+
     @FindBy(xpath = "//label[contains(text(), 'Срок действия')]")
     WebElement srokCard;
+
+    public String getSrokCardPlaceholder() {
+        return srokCard.getAttribute("placeholder");
+    }
+
     @FindBy(xpath = "//label[contains(text(), 'Имя и фамилия на карте')]")
     WebElement nameCard;
+
+    public String getNameCardPlaceholder() {
+        return nameCard.getAttribute("placeholder");
+    }
+
     @FindBy(xpath = "//label[contains(text(), 'CVC')]")
     WebElement codeCard;
+
+    public String getCodeCardPlaceholder() {
+        return codeCard.getAttribute("placeholder");
+    }
 
 
 }
