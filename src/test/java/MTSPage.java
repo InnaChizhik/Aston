@@ -190,32 +190,32 @@ public class MTSPage {
         return text.replaceAll("Оплата: Услуги связи Номер:375", "").trim();
     }
 
-    @FindBy(xpath = "//*[@id=\"cc-number\"]")
+    @FindBy(xpath = "//label[contains(text(), 'Номер карты')]")
     private WebElement numberCard;
 
     public String getNumberCardPlaceholder() {
-        return numberCard.getAttribute("placeholder");
+        return numberCard.getText();
     }
 
     @FindBy(xpath = "//label[contains(text(), 'Срок действия')]")
     WebElement srokCard;
 
     public String getSrokCardPlaceholder() {
-        return srokCard.getAttribute("placeholder");
+        return srokCard.getText();
     }
 
     @FindBy(xpath = "//label[contains(text(), 'Имя и фамилия на карте')]")
     WebElement nameCard;
 
     public String getNameCardPlaceholder() {
-        return nameCard.getAttribute("placeholder");
+        return nameCard.getText();
     }
 
     @FindBy(xpath = "//label[contains(text(), 'CVC')]")
     WebElement codeCard;
 
     public String getCodeCardPlaceholder() {
-        return codeCard.getAttribute("placeholder");
+        return codeCard.getText();
     }
 
 
