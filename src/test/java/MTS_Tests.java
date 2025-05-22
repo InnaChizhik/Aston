@@ -80,6 +80,20 @@ public class MTS_Tests {
         assertEquals("E-mail для отправки чека", mtsPage.getArrearsEmailPlaceholder(), "Плейсхолдер почты(задолженность) неверно");
     }
 
+    @Test
+    public void testInput() {
+        String phone = "297777777";
+        String sum = "30";
+        String email = "prover@mail.ru";
+        mtsPage.fillForma(phone, sum, email);
+        mtsPage.clickContinButton();
+        assertEquals(phone, mtsPage.getFormaPhone(), "Номер тел. неверный");
+        assertEquals(sum, mtsPage.getFormaSum(), "Сумма неправильная в окне");
+        assertEquals(sum, mtsPage.getFormaButtonSum(), "Сумма неправильная на кнопке");
+        driver.get("https://www.mts.by/");
+
+
+    }
 
     @AfterAll
     public static void finish() {

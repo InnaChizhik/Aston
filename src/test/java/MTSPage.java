@@ -64,8 +64,6 @@ public class MTSPage {
         return driver.getCurrentUrl();
     }
 
-    //место для кнопки и всего того что с ней связано господи
-
     @FindBy(xpath = "//*[@id=\"connection-phone\"]")
     private WebElement phoneConText;
 
@@ -150,5 +148,44 @@ public class MTSPage {
         return arrearsEmailText.getAttribute("placeholder");
     }
 
+    @FindBy(xpath = "//*[@id=\"connection-phone\"]")
+    private WebElement phoneInput;
+    @FindBy(xpath = "//*[@id=\"connection-sum\"]")
+    private WebElement sumInput;
+    @FindBy(xpath = "//*[@id=\"connection-email\"]")
+    private WebElement emailInput;
+    @FindBy(xpath = "//*[@id=\"pay-connection\"]/button")
+    private WebElement continButton;
+    @FindBy(xpath = "//app-payment-container//div[1]/div[1]/span")
+    private WebElement formaSum;
+    @FindBy(xpath = "//app-payment-container//app-card-page//div[1]/button")
+    private WebElement formaButtonSum;
+    @FindBy(xpath = "//app-payment-container//div[2]/span")
+    private WebElement formaPhone;
+    @FindBy(id = "confirmation-widget")
+    private WebElement fornaWidget;
 
+
+    public void fillForma(String phone, String sum, String email) {
+        phoneInput.sendKeys(phone);
+        sumInput.sendKeys(sum);
+        emailInput.sendKeys(email);
+    }
+
+    public void clickContinButton() {
+        continButton.click();
+    }
+
+    public String getFormaSum() {
+        return formaSum.getText();
+
+    }
+
+    public String getFormaButtonSum() {
+        return formaButtonSum.getText();
+    }
+
+    public String getFormaPhone() {
+        return formaPhone.getText();
+    }
 }
