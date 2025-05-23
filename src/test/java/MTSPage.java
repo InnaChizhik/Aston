@@ -162,8 +162,6 @@ public class MTSPage {
     private WebElement formaButtonSum;
     @FindBy(xpath = "//app-payment-container//div[2]/span")
     private WebElement formaPhone;
-    @FindBy(id = "confirmation-widget")
-    private WebElement fornaWidget;
 
 
     public void fillForma(String phone, String sum, String email) {

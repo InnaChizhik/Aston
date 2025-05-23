@@ -88,6 +88,7 @@ public class MTS_Tests {
         mtsPage.fillForma(phone, sum, email);
         mtsPage.clickContinButton();
         driver.switchTo().frame(driver.findElement(By.className("bepaid-iframe")));
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         assertEquals("Номер карты", mtsPage.getNumberCardPlaceholder(), "Плейсхолдер номер карты неверный");
         assertEquals("Срок действия", mtsPage.getSrokCardPlaceholder(), "Плейсхолдер срок карты неверный");
         assertEquals("Имя и фамилия на карте", mtsPage.getNameCardPlaceholder(), "Плейсхолдер ФІ неверный");
