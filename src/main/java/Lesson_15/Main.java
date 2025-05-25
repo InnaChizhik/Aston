@@ -14,6 +14,12 @@ public class Main {
         studentCollection.printStudents(2);
         studentCollection.removeStudents();
         studentCollection.printStudents(2);
+        TelephoneDirectory phoneDirectory = new TelephoneDirectory();
+        phoneDirectory.add("Орлова", "+375291220344");
+        phoneDirectory.add("Орлова", "+375291220900");
+        phoneDirectory.add("Анисимов", "+375336520900");
+        phoneDirectory.printList();
+        phoneDirectory.get("Орлова");
 
     }
 }
