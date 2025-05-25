@@ -37,4 +37,8 @@ public class Student {
             course++;
         }
     }
+
+    public String toString() {
+        return name + ", группа =" + group + ", курс=" + course + ", средний балл = " + getSrednyGrade();
+    }
 }
