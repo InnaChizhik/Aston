@@ -21,4 +21,14 @@ public class CollectionStudent {
         }
     }
 
+    public void printStudents(int course) {
+        System.out.println("Студенты " + course + "курса: ");
+        for (Student student : students) {
+            if (student.getCourse() == course) {
+                System.out.println(student.getName());
+            }
+        }
+    }
+
+
 }
