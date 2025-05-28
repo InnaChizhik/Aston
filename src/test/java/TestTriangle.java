@@ -17,6 +17,7 @@ public class TestTriangle {
     }
 
     @Test(dataProvider = "triangleData")
+
     public void testTriangleArea(int a, int b, int c, int actual) {
         Assert.assertEquals(Triangle.calculatorTriangleArea(a, b, c), actual);
     }

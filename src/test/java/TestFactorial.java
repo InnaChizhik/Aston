@@ -1,14 +1,22 @@
 import Lesson_16.Factorial;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
 
 public class TestFactorial {
-
-    @ParameterizedTest
-    @CsvSource({"1,1", "3, 6", "6, 720"})
-    public void testFactorial(int expected, int actual) {
-        Assertions.assertEquals(Factorial.calculatorFactorial(expected), actual);
+    @DataProvider(name = "factorialData")
+    public Object[][] provideFactorialData() {
+        return new Object[][]{
+                {1, 1},
+                {3, 6},
+                {6, 720}
+        };
     }
+
+    @Test(dataProvider = "factorialData")
+    public void testFactorial(int input, int actual) {
+        Assert.assertEquals(Factorial.calculatorFactorial(input), actual);
+    }
+
 }
