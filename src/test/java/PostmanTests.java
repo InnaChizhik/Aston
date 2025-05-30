@@ -1,23 +1,29 @@
-import io.restassured.response.Response;
+
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class PostmanTests {
     @Test
     public void testGetRequest() {
-        Response response = io.restassured.RestAssured.get("https://postman-echo.com/get?foo1=bar1&foo2=bar2");
-
-        assertEquals(200, response.getStatusCode());
-        assertEquals("bar1", response.jsonPath().getString("args.foo1"));
-        assertEquals("bar2", response.jsonPath().getString("args.foo2"));
+        given()
+                .baseUri("https://postman-echo.com")
+                .queryParam("foo1", "bar1")
+                .queryParam("foo2", "bar2")
+                .when()
+                .get("/get")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body("args.foo1", equalTo("bar1"))
+                .body("args.foo2", equalTo("bar2"));
     }
 
     @Test
     public void testPostRawTextRequest() {
-        given()
+        given().log().body()
                 .baseUri("https://postman-echo.com")
                 .header("Content-Type", "text/plain")
                 .body("{\n    \"test\": \"value\"\n}")
@@ -32,7 +38,7 @@ public class PostmanTests {
 
     @Test
     public void testPostFormDataRequest() {
-        given()
+        given().log().body()
                 .baseUri("https://postman-echo.com")
                 .header("Content-Type", "application/json")
                 .body("{\"foo1\": \"bar1\", \"foo2\": \"bar2\"}")
@@ -47,7 +53,15 @@ public class PostmanTests {
 
     @Test
     public void testPutRequest() {
-
+        given().log().body()
+                .baseUri("https://postman-echo.com")
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .when()
+                .put("/put")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body("form", equalTo("{}"));
     }
 
     @Test
