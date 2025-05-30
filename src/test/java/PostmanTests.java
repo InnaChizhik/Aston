@@ -55,23 +55,41 @@ public class PostmanTests {
     public void testPutRequest() {
         given().log().body()
                 .baseUri("https://postman-echo.com")
-                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Content-Type", "application/json")
                 .when()
                 .put("/put")
                 .then()
                 .assertThat()
                 .statusCode(200)
-                .body("form", equalTo("{}"));
+                .body("form.size()", equalTo(0));
     }
 
     @Test
     public void testPatchRequest() {
-
+        given().log().body()
+                .baseUri("https://postman-echo.com")
+                .header("Content-Type", "text/plain")
+                .body("This is expected to be sent back as part of response body.")
+                .when()
+                .patch("/patch")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body("data", equalTo("This is expected to be sent back as part of response body."));
     }
 
     @Test
     public void testDeleteRequest() {
-
+        given().log().body()
+                .baseUri("https://postman-echo.com")
+                .header("Content-Type", "text/plain")
+                .body("This is expected to be sent back as part of response body.")
+                .when()
+                .delete("/delete")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body("data", equalTo("This is expected to be sent back as part of response body."));
     }
 
 }
