@@ -2,6 +2,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class MTSPage {
     public static WebDriver driver;
@@ -53,11 +57,16 @@ public class MTSPage {
         return belCart.isDisplayed();
     }
 
-    @FindBy(xpath = "//section/div/a")
+    @FindBy(xpath = "//a[contains(text(),'Подробнее о сервисе')]")
     private WebElement link;
 
     public void clickLink() {
+
         link.click();
+    }
+
+    public WebElement getLinkElement() {
+        return link;
     }
 
     public String getUrl() {
@@ -160,7 +169,7 @@ public class MTSPage {
     private WebElement formaSum;
     @FindBy(xpath = "//app-payment-container//app-card-page//div[1]/button")
     private WebElement formaButtonSum;
-    @FindBy(xpath = "//app-payment-container//div[2]/span")
+    @FindBy(xpath = "//app-payment-container//div[2]/span[contains(text(),'375')]")
     private WebElement formaPhone;
 
 
@@ -180,12 +189,11 @@ public class MTSPage {
     }
 
     public String getFormaButtonSum() {
-        return formaButtonSum.getText();
+        return formaButtonSum.getText().replace("Оплатить ", "");
     }
 
     public String getFormaPhone() {
-        String text = formaPhone.getText();
-        return text.replaceAll("Оплата: Услуги связи Номер:375", "").trim();
+        return formaPhone.getText().replaceAll("Оплата: Услуги связи Номер:375", "").trim();
     }
 
     @FindBy(xpath = "//label[contains(text(), 'Номер карты')]")
